@@ -1,12 +1,12 @@
 const express = require('express')
-const scrap = require('../utils')
+const scrap = require('../utils/index')
 const app = express()
 
 module.exports = {
     getData: async (req, res) => {
         try{
             const result = await scrap()
-            console.log(result)
+            console.log("result en getData", result)
             res.status(200).json({
                 success: true,
                 data: result
@@ -17,7 +17,6 @@ module.exports = {
                 success: false,
                 message: err.message
             })
-
         }
     }
 }
